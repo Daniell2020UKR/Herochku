@@ -144,7 +144,7 @@ async def akira_yt2v(event):
     args = get_args(event)
     if args:
         temp_dir = tempfile.mkdtemp(dir=tempfile.gettempdir())
-        dargs = {'format': 'bestvideo[ext=mp4][filesize<?250M]+bestaudio[ext=m4a][filesize<?250M]', 'outtmpl': f'{temp_dir}/video-%(id)s.%(ext)s', 'writethumbnail': True}
+        dargs = {'format': 'bestvideo[ext=mp4][filesize<?1500M]+bestaudio[ext=m4a][filesize<?1500M]', 'outtmpl': f'{temp_dir}/video-%(id)s.%(ext)s', 'writethumbnail': True}
         sent_message = await event.reply(akira_lang.translations[get_lang(chat)]['akira_downloading'])
         try:
             video_info = YoutubeDL(dargs).extract_info(args[0])
